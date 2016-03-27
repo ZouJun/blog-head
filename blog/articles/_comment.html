@@ -1,0 +1,17 @@
+<div ng-controller="comments" class="animated bounceInDown">
+    <div ng-repeat="comment_data in getc_data" class="article_css_delete">
+        <!--ng-show="comment_data.enable"-->
+        <p><label>评论ID：</label>{{comment_data.id}}</p>
+
+        <p><label>评论人：</label>{{comment_data.name=comment_data.name||"匿名"}}</p>
+
+        <p><label>评论内容：</label>{{comment_data.content}}</p>
+
+        <p><label>评论时间：</label>{{comment_data.created_at | date: "yyyy-MM-dd HH:mm:ss"}}</p>
+        <a href="#" ng-click="delete_comment(comment_data.id)">删除评论</a>
+    </div>
+    <p bgf-pagination collection="getc_data" auto-presets="false" reload-page="reload" per-page="3"
+       url="url"
+       template-url="paginate-anything.html"></p>
+
+</div>

@@ -1,0 +1,24 @@
+<div id="middle">
+    <div ng-repeat="article in articles">
+        <div>{{aa.title}}</div>
+        <div class="title">{{article.title}}</div>
+        <a href="#/article/{{article.id}}" style="text-decoration: none">
+            <div class="content animated fadeInRight">{{article.content |
+                limitTo:90}}。。。
+            </div>
+        </a>
+
+
+        <div class="created">
+            <div class="created_a">作者：{{article.user.username}}</div>
+            <div class="created_t">浏览次数：{{article.views}}</div>
+            <div class="created_t">{{article.created_at | date:"yyyy-MM-dd HH:mm:ss"}}</div>
+
+        </div>
+        <hr>
+    </div>
+    <div class="r_right">
+    <p bgf-pagination collection="articles" auto-presets="false" reload-page="reload" per-page="4"
+       url="urls"
+       template-url="paginate-anything.html"></p></div>
+</div>

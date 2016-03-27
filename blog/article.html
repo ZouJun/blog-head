@@ -1,0 +1,16 @@
+<div class="article_css animated zoomInRight" ng-controller="arti">
+    <p class="title1">{{articledata.title}}</p>
+
+    <p class="content1">&nbsp;{{articledata.content}}</p>
+
+    <div class="p_le">
+    <p class="p_l"><a href="#/articles/{{articledata.id}}" style="text-decoration: none">编辑&nbsp;&nbsp|&nbsp;&nbsp</a></p>
+
+    <p class="p_l"><a href="#/articles" ng-click="delete_article()" style="text-decoration: none">删除&nbsp;&nbsp|&nbsp;&nbsp</a></p>
+
+    <p class="p_l"><a href="#/article/{{articledata.id}}/comments" style="text-decoration: none">评论&nbsp;&nbsp|&nbsp;&nbsp</a></p>
+
+    <p class="p_l"><a href="#/article/{{articledata.id}}/comments/anything" style="text-decoration: none">查看评论&nbsp;&nbsp|&nbsp;&nbsp</a></p>
+        <p class="p_l"><a href="#//articles/zhuye" style="text-decoration: none">返回</a></p>
+    </div>
+</div>

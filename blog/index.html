@@ -1,0 +1,188 @@
+<html ng-app="blog" ng-controller="main">
+<head lang="en">
+    <meta Content-Type="text/html" charset="UTF-8">
+    <title>博客系统</title>
+    <link rel="stylesheet" href="../css/index.css"/>
+    <link rel="stylesheet" href="bower_components/animate.css/animate.css">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css"/>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.min.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.min.js"></script>
+    <script src="bower_components/angular-route/angular-route.min.js"></script>
+    <script src="bower_components/angular-paginate-anything/src/paginate-anything.min.js"></script>
+    <script src="../js/control_p.js"></script>
+</head>
+<body>
+<div id="wrap">
+<div class="firstarea animated zoomInLeft">
+    <div class="firsta">
+        <div ng-hide="myvalue">
+            <a  class="log1" href="#/articles/zhuye" data-toggle="modal" data-target="#login" style="text-decoration: none">登陆</a>
+        </div>
+        <div class="log1" ng-show="myvalue">欢迎回来：{{c_data.username}}</div>
+
+        <div class="dropdown">
+            <a  class="logi" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true" style="text-decoration: none">
+                设置
+                <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                <li role="presentation"><a role="menuitem" tabindex="-1" data-toggle="modal"
+                                           data-target="#updatesource">修改资料</a>
+                </li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#/articles/zhuye">设置心情</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#/articles/zhuye">随便逛逛</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#/articles/zhuye">关于我的</a></li>
+            </ul>
+        </div>
+
+        <a class="logi" href="#/articles/zhuye" ng-click="login_out()" style="text-decoration: none">注销</a>
+    </div>
+
+    <div><label class="lab">人生的轨迹,似乎永远没有尽头，我们所要做的，还有很多！</label></div>
+</div>
+<div class="modal fade" id="login">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">欢迎登陆</h4>
+            </div>
+            <div class="modal-body">
+                <form role="form" name="myForm">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">用户名</label>
+                        <input type="text" ng-model="user.username" class="form-control"
+                               id="exampleInputEmail1"
+                               placeholder="name"
+                                >
+
+                        </span>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">密码</label>
+                        <input type="password" ng-model="user.password" class="form-control"
+                               id="exampleInputPassword1"
+                               placeholder="password"
+                                >
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" ng-click="login_click()" class="btn btn-default" data-dismiss="modal">登陆
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="thirdarea">
+    <div class="third">
+        <ul class="nav nav-tabs">
+            <li role="presentation"><a href="#/articles/zhuye">主页</a></li>
+            <li role="presentation"><a href="#/articles/zhuye">博文</a></li>
+            <li role="presentation"><a href="">消息</a></li>
+            <li role="presentation"><a href="">管理博文</a></li>
+            <li role="presentation"><a href="#articles/zhuye" data-toggle="modal" data-target="#editblog">发表文章</a></li>
+            <li role="presentation"><a href="#/articles/zhuye" data-toggle="modal" data-target="#about">关于</a></li>
+        </ul>
+    </div>
+    <div class="thirda">
+        <div><input type="text" ng-model="tags" placeholder="search"/>&nbsp;&nbsp;&nbsp<a href="javascript:void(0)" ng-click="tags_get()" style="text-decoration: none">搜索</a>
+    </div>
+    </div></div>
+    <div class="fourtharea">
+        <div id="left" ng-include="'partile/_left.html'">
+        </div>
+        <div class="article_css" ng-view></div>
+    </div>
+    <div class="fivetharea">
+        <div class="five_one">博客版权@xxx&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp2015年1月</div>
+        <div class="five_two">
+            <marquee bgcolor="bisque" loop="infinite" scrollmount="20" scrolldelay="600">欢迎大家访问本博客，并指出不足处。。。</marquee>
+        </div>
+    </div>
+
+    <div class="modal fade" id="about">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">关于</h4>
+                </div>
+                <div class="modal-body">
+                    <p>博客历史悠久，这只是很简单的介绍！</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">知道了</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="updatesource">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">修改资料</h4>
+                </div>
+                <div class="modal-body">
+                    <form role="form">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">旧密码</label>
+                            <input type="text" ng-model="old_password" class="form-control" id="aa"
+                                   placeholder="旧密码"
+                                    >
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">新密码</label>
+                            <input type="password" ng-model="new_password" class="form-control"
+                                   id=""
+                                   placeholder="新密码"
+                                    >
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" ng-click="update_source()" class="btn btn-default" data-dismiss="modal">提交修改
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="editblog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">文章发表</h4>
+                </div>
+                <div class="modal-body">
+                    <p><label>标题<input ng-model="article.title" required></label></p>
+
+                    <p><label>标签<input ng-model="article.tags" required></label></p>
+
+                    <p><label>内容</label></p>
+
+                    <p><textarea ng-model="article.content" cols="92" rows="25" required></textarea></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" ng-click="article_submit()" class="btn btn-default" data-dismiss="modal">发表
+                    </button>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+</body>
+</html>

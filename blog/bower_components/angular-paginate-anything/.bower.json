@@ -1,0 +1,30 @@
+{
+  "name": "angular-paginate-anything",
+  "version": "3.1.1",
+  "main": "src/paginate-anything.js",
+  "dependencies": {
+    "angular": "latest"
+  },
+  "devDependencies": {
+    "angular-mocks": "latest",
+    "jasmine-as-promised": "latest"
+  },
+  "ignore": [
+    "**/.*",
+    "**/*.json",
+    "node_modules",
+    "bower_components",
+    "test"
+  ],
+  "homepage": "https://github.com/begriffs/angular-paginate-anything",
+  "_release": "3.1.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "v3.1.1",
+    "commit": "b0570a1482266b6f8c1ca51fff7aa7a187b424e4"
+  },
+  "_source": "git://github.com/begriffs/angular-paginate-anything.git",
+  "_target": "~3.1.1",
+  "_originalSource": "angular-paginate-anything",
+  "_direct": true
+}
